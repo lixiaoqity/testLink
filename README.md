@@ -25,4 +25,6 @@ The tool is used to find and test the status of Urls which start with http:// or
 The green output and "good" mean the url which you test is safe and the status code is 200.
 The red output and "bad" mean the url which you test is not safe and the status code is 400 or 404.
 The gray output and "unknow" mean other status.
+The yellow output and "direct" mean the url which you test is not safe and the status code is 301 307 or 308.
+
 

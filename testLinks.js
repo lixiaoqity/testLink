@@ -24,7 +24,6 @@ else {
     else {
         for (let i = 1; i <= fileName.length; i++) {
             try {
-
                 let data = fs.readFileSync(fileName[i - 1], 'utf8');
                 let urls = data.match(regex);
 
@@ -36,8 +35,11 @@ else {
                                     if (response.statusCode == 200) {
                                         console.log(chalk.green(u + ' is good.'));
                                     }
-                                    else if (response.statusCode == 400 | response.statusCode == 404) {
+                                    else if (response.statusCode == 400 || response.statusCode == 404) {
                                         console.log(chalk.red(u + ' is bad.'));  
+                                    }
+                                    else if (response.statusCode == 301 || response.statusCode == 307 || response.statusCode == 308){
+                                        console.log(chalk.yellow(u + ' is redirect.')); 
                                     }
                                     else {
                                         console.log(chalk.gray(u + ' is unknow.'));
@@ -54,10 +56,10 @@ else {
                     }
                 }
                 else {
-                    console.log("No suitable http url.");
+                    console.log("No suitable http(s) url.");
                 }
-            } catch (e) {
-                console.log('Error:', e.stack);
+            } catch (err) {
+                console.log("File can not be found. Please try again!");               
             }
         }
     }
