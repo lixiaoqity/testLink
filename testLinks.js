@@ -18,7 +18,7 @@ if (fileName.length < 1) {
 }
 else {
     if (fileName[0] == "v" || fileName[0] == "version") {
-        console.log("name: " + pjson.name);
+        console.log("name: testLinks");
         console.log("version: " + pjson.version);
     }
     else {
