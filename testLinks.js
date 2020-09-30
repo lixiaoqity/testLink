@@ -30,25 +30,10 @@ else {
                 if (urls) {
                     for (let u of urls) {
                         try {
-                            request({url: u, method: 'HEAD'},(error,response)=>{
-                                if(!error){
-                                    if (response.statusCode == 200) {
-                                        console.log(chalk.green(u + ' is good.'));
-                                    }
-                                    else if (response.statusCode == 400 || response.statusCode == 404) {
-                                        console.log(chalk.red(u + ' is bad.'));  
-                                    }
-                                    else if (response.statusCode == 301 || response.statusCode == 307 || response.statusCode == 308){
-                                        console.log(chalk.yellow(u + ' is redirect.')); 
-                                    }
-                                    else {
-                                        console.log(chalk.gray(u + ' is unknow.'));
-                                    }
-                                }
-                                else{
-                                    console.log(chalk.gray(u + ' is unknow.'));
-                                }
-                            })
+                            testLink(u);
+                            if (!u.startsWith("https")) {
+                                testLink(u.replace(/^http/, "https"));
+                            }
                         }
                         catch (error) {
                             console.log(error);
@@ -59,13 +44,33 @@ else {
                     console.log("No suitable http(s) url.");
                 }
             } catch (err) {
-                console.log("File can not be found. Please try again!");               
+                console.log("File can not be found. Please try again!");
             }
         }
     }
 }
 
-
+function testLink(u) {
+    request({ url: u, method: 'HEAD' }, (error, response) => {
+        if (!error) {
+            if (response.statusCode == 200) {
+                console.log(chalk.green(u + ' is good.'));
+            }
+            else if (response.statusCode == 400 || response.statusCode == 404) {
+                console.log(chalk.red(u + ' is bad.'));
+            }
+            else if (response.statusCode == 301 || response.statusCode == 307 || response.statusCode == 308) {
+                console.log(chalk.yellow(u + ' is redirect.'));
+            }
+            else {
+                console.log(chalk.gray(u + ' is unknow.'));
+            }
+        }
+        else {
+            console.log(chalk.gray(u + ' is unknow.'));
+        }
+    })
+}
 
 
 
