@@ -9,6 +9,7 @@ const request = require('request');
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
 let fileName = process.argv.slice(2);
+let flag = false;
 
 if (fileName.length < 1) {
     console.log('Help:');
@@ -22,16 +23,25 @@ else {
         console.log("version: " + pjson.version);
     }
     else {
+        if (fileName[0] == "-s") {
+            flag = true;
+        }
         for (let i = 1; i <= fileName.length; i++) {
             try {
-                let data = fs.readFileSync(fileName[i - 1], 'utf8');
+                let data;
+                if (flag) {
+                    data = fs.readFileSync(fileName[i++], 'utf8');
+                } else {
+                    data = fs.readFileSync(fileName[i - 1], 'utf8');
+
+                }
                 let urls = data.match(regex);
 
                 if (urls) {
                     for (let u of urls) {
                         try {
                             testLink(u);
-                            if (!u.startsWith("https")) {
+                            if (flag && !u.startsWith("https")) {
                                 testLink(u.replace(/^http/, "https"));
                             }
                         }
