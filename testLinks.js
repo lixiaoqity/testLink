@@ -26,14 +26,22 @@ else {
         if (fileName[0] == "-s") {
             flag = true;
         }
-        for (let i = 1; i <= fileName.length; i++) {
+
+        let fileLength = 0;
+
+        if (flag) {
+            fileLength = fileName.length - 1;
+        } else {
+            fileLength = fileName.length;
+        }
+
+        for (let i = 1; i <= fileLength; i++) {
             try {
                 let data;
                 if (flag) {
-                    data = fs.readFileSync(fileName[i++], 'utf8');
+                    data = fs.readFileSync(fileName[i], 'utf8');
                 } else {
                     data = fs.readFileSync(fileName[i - 1], 'utf8');
-
                 }
                 let urls = data.match(regex);
 
