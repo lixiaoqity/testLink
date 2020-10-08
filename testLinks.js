@@ -1,11 +1,10 @@
 #!/usr/bin/env node
 
 const process = require("process");
-const chalk = require('chalk');
 const fs = require('fs');
 const pjson = require('./package.json');
+const testLink = require("./testLink/testLink");
 
-const request = require('request');
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
 let fileName = process.argv.slice(2);
@@ -49,9 +48,7 @@ else {
                     for (let u of urls) {
                         try {
                             testLink(u);
-                            if (flag && !u.startsWith("https")) {
-                                testLink(u.replace(/^http/, "https"));
-                            }
+
                         }
                         catch (error) {
                             console.log(error);
