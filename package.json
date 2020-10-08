@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "bin": {
-    "testLinks": "testLinks.js"
+    "testLinks": "index.js"
   },
   "dependencies": {
     "chalk": "^4.1.0",
