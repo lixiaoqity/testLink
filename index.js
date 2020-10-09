@@ -4,11 +4,13 @@ const process = require("process");
 const fs = require('fs');
 const pjson = require('./package.json');
 const testLink = require("./src/test-link");
+const { argv } = require("process");
 
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
 let fileName = process.argv.slice(2);
 let flag = false;
+let flagj = false;
 
 if (fileName.length < 1) {
     console.log('Help:');
@@ -25,7 +27,10 @@ else {
         if (fileName[0] == "-s" && fileName.length > 1) {
             flag = true;
             fileName = fileName.slice(1);
-            console.log(fileName);
+        }
+        if ((fileName[0] == "-j" ||fileName[0] == "-json"||fileName[0] == "\j")&& fileName.length > 1) {
+            flagj = true;
+            fileName = fileName.slice(1);
         }
 
         for (let i = 1; i <= fileName.length; i++) {
@@ -42,10 +47,10 @@ else {
                             try {
 
                                 if (flag && !u.startsWith("https")) {
-                                    testLink(u.replace(/^http/, "https"));
+                                    testLink(u.replace(/^http/, "https"),flagj);
                                 }
                                 else {
-                                    testLink(u);
+                                    testLink(u,flagj);
                                 }
 
                             }
