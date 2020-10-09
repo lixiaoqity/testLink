@@ -1,7 +1,7 @@
 const chalk = require('chalk');
 const request = require('request');
 
-const testLinkColor = (u)=> {
+const testLinkColor = (u,j)=> {
     request({url: u, method: 'HEAD'},(error,response)=>{
         if(j==true){
             let temp = {

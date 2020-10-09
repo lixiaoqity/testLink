@@ -3,12 +3,8 @@
 const fs = require('fs');
 const pjson = require('./package.json');
 const testLink = require("./src/test-link");
-<<<<<<< HEAD
 const testLinkColor = require('./src/test-link-color');
 require('dotenv').config({path:"./config/keys.env"});
-=======
-const { argv } = require("process");
->>>>>>> issue-9
 
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
