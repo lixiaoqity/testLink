@@ -1,9 +1,10 @@
 #!/usr/bin/env node
 
-const process = require("process");
 const fs = require('fs');
 const pjson = require('./package.json');
 const testLink = require("./src/test-link");
+const testLinkColor = require('./src/test-link-color');
+require('dotenv').config({path:"./config/keys.env"});
 
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
@@ -40,14 +41,22 @@ else {
                     if (urls) {
                         for (let u of urls) {
                             try {
-
-                                if (flag && !u.startsWith("https")) {
-                                    testLink(u.replace(/^http/, "https"));
+                                if(process.env.CLICOLOR==1){
+                                    if (flag && !u.startsWith("https")) {
+                                        testLinkColor(u.replace(/^http/, "https"));
+                                    }
+                                    else {
+                                        testLinkColor(u);
+                                    }
                                 }
-                                else {
-                                    testLink(u);
+                                if(process.env.CLICOLOR==0){
+                                    if (flag && !u.startsWith("https")) {
+                                        testLink(u.replace(/^http/, "https"));
+                                    }
+                                    else {
+                                        testLink(u);
+                                    }
                                 }
-
                             }
                             catch (error) {
                                 console.log(error);
