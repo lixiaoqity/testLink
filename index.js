@@ -12,6 +12,7 @@ const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_
 let fileName = process.argv.slice(2);
 let flag = false;
 let flagj = false;
+let flagError = false;
 
 if (fileName.length < 1) {
     console.log('Help:');
@@ -36,11 +37,19 @@ else {
             fileName = fileName.slice(1);
         }
         if ((fileName[0] == "-i" || fileName[0] == "--ignore" || fileName[0] == "\i") && fileName.length > 2) {
-            ingoreUrlRegex = findIgnoreUrls(fileName[1])
+            try {
+                ingoreUrlRegex = findIgnoreUrls(fileName[1])
+            } catch(badLines) {
+                console.log("This is invalid.  It doesn't use http:// or https://");
+                badLines.map(s => console.log(s));
+                console.log();
+                flagError = true;
+            }
+            
             fileName = fileName.slice(2);
         }
 
-        for (let i = 1; i <= fileName.length; i++) {
+        for (let i = 1; i <= fileName.length && flagError == false; i++) {
             let data;
 
             fs.readFile(fileName[i - 1], (err, response) => {
