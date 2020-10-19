@@ -1,4 +1,4 @@
 # test file for test1.html
 https://leon-toronto
-www.badlink
+
 https://github.com
