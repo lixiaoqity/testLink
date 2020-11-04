@@ -30,6 +30,7 @@ const testLink = (u,j)=> {
             }
         }
     })
+    .setMaxListeners(50)
 }
 
 module.exports = testLink;
