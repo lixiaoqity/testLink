@@ -2,18 +2,6 @@
 
 testLinks is a command-line tool for finding and reporting dead links in a file.
 
-<h2>Programming language</h2>
-
-JavaScript
-
-<h2>Install</h2>
-
-Please download or clone the repository to your computer. Then change current directory to be the repository. 
-
-npm init     --- Initial your node.js enviroment.<br>
-npm link     --- Create a symbolic link.<br>
-npm install  --- Install the modules.<br>
-
 <h2>Usage</h2>
 
 testLinks                           --- Help. <br>
