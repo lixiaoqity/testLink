@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`end-to-end integration prints tool version with arument -v 1`] = `
+"name: testLinks
+version: 1.0.0"
+`;
+
+exports[`end-to-end integration prints url information with a path 1`] = `"https://github.com is good."`;
+
+exports[`end-to-end integration prints url information with ignore arugment 1`] = `
+"This is invalid.  It doesn't use http:// or https://
+this
+"
+`;
+
+exports[`end-to-end integration prints url information with path and json output 1`] = `"{\\"url\\":\\"https://github.com\\",\\"status\\":200}"`;
+
+exports[`end-to-end integration prints url information with two path 1`] = `
+"https://github.com is good.
+https://github.com is good."
+`;
