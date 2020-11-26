@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`end-to-end integration prints tool version with arument -v 1`] = `
+"name: testLinks
+version: 1.0.0"
+`;
+
+exports[`end-to-end integration prints url information with a path 1`] = `
+"http://www.wordpress.com is good.
+https://bridge-dusky.vercel.app/bridges is good.
+https://web422-leon-blog.herokuapp.com/ is bad.
+https://leon-toronto.herokuapp.com/hat is good.
+https://leon-toronto.herokuapp.com is good.
+https://blog-example-opal.vercel.app/home is good.
+https://web422-angular-test.herokuapp.com/ is unknow.
+http://zenit.senecac.on.ca/~chris.tyler/planet/ is good.
+http://s9y.org is good.
+https://github.com/lixiaoqity/testLink is good.
+https://github.com/lixiaoqity/testLink/input is bad."
+`;
+
+exports[`end-to-end integration prints url information with ignore arugment 1`] = `
+"http://www.wordpress.com is good.
+https://blog-example-opal.vercel.app/home is good.
+https://bridge-dusky.vercel.app/bridges is good.
+https://web422-leon-blog.herokuapp.com/ is bad.
+https://web422-angular-test.herokuapp.com/ is unknow.
+http://zenit.senecac.on.ca/~chris.tyler/planet/ is good.
+http://s9y.org is good."
+`;
+
+exports[`end-to-end integration prints url information with path and json output 1`] = `
+"{\\"url\\":\\"https://blog-example-opal.vercel.app/home\\",\\"status\\":200}
+{\\"url\\":\\"https://bridge-dusky.vercel.app/bridges\\",\\"status\\":200}
+{\\"url\\":\\"http://www.wordpress.com\\",\\"status\\":200}
+{\\"url\\":\\"https://web422-leon-blog.herokuapp.com/\\",\\"status\\":404}
+{\\"url\\":\\"https://web422-angular-test.herokuapp.com/\\",\\"status\\":503}
+{\\"url\\":\\"https://leon-toronto.herokuapp.com/hat\\",\\"status\\":200}
+{\\"url\\":\\"https://github.com/lixiaoqity/testLink\\",\\"status\\":200}
+{\\"url\\":\\"https://leon-toronto.herokuapp.com\\",\\"status\\":200}
+{\\"url\\":\\"https://github.com/lixiaoqity/testLink/input\\",\\"status\\":404}
+{\\"url\\":\\"http://zenit.senecac.on.ca/~chris.tyler/planet/\\",\\"status\\":200}
+{\\"url\\":\\"http://s9y.org\\",\\"status\\":200}"
+`;
+
+exports[`end-to-end integration prints url information with two path 1`] = `
+"https://blog-example-opal.vercel.app/home is good.
+https://bridge-dusky.vercel.app/bridges is good.
+https://web422-angular-test.herokuapp.com/ is unknow.
+https://web422-leon-blog.herokuapp.com/ is bad.
+https://github.com/lixiaoqity/testLink/input is bad.
+https://leon-toronto.herokuapp.com/hat is good.
+https://leon-toronto.herokuapp.com is good.
+http://s-aleinikov.blog.ca/feed/atom/posts/ is unknow.
+http://ejtorre.blog.ca/feed/rss2/posts/ is unknow.
+http://rickeyre.ca/open-source-feed.xml is unknow.
+https://wiki.cdot.senecacollege.ca/w/api.php?action=rsd is good.
+http://tea.cesaroliveira.net/archives/tag/seneca/feed is unknow.
+http://matthewtorrance.com/category/osd/feed/ is unknow.
+http://hesam-chobanlou.com/feed/atom.php is unknow.
+https://github.com/lixiaoqity/testLink is good.
+http://blog.marcussaad.com/?feed=rss2&amp;lang=en is unknow.
+http://peter.sykokillers.com/category/open-source/feed/ is unknow.
+http://zadkielm.blogspot.com/feeds/posts/default/-/open%20source is bad.
+http://travisrawn.blogspot.com/feeds/posts/default is bad.
+http://dev-blog.zerogin.com/category/opensource/feed/ is bad.
+http://main.justinflowers.ca/web/wordpress/?cat=2&amp;feed=rss2 is unknow.
+http://http://stephenruthland.wordpress.com/feed/ is unknow.
+https://dps909.defilippis.ca/index.php/feed/ is unknow.
+http://http://hhashimi3.wordpress.com/feed/ is unknow.
+http://www.wordpress.com is good.
+http://www.wordpress.com is good.
+http://zenit.senecac.on.ca/~chris.tyler/planet/ is good.
+http://zenit.senecac.on.ca/~chris.tyler/planet/ is good.
+http://en.wikipedia.org/wiki/RSS_ is good.
+http://en.wikipedia.org/wiki/RSS_ is good.
+http://en.wikipedia.org/wiki/Hackergotchi is bad.
+http://s9y.org is good.
+http://s9y.org is good."
+`;
