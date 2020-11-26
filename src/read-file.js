@@ -1,6 +1,6 @@
-const fs = require("fs");
-const testLink = require("./test-link");
-const testLinkColor = require("./test-link-color");
+const fs = require('fs');
+const testLink = require('./test-link');
+const testLinkColor = require('./test-link-color');
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
 const readFile = (fileName, ignoreUrls, flag, flagj) => {
@@ -16,15 +16,15 @@ const readFile = (fileName, ignoreUrls, flag, flagj) => {
 					if (!u.match(ignoreUrls)) {
 						try {
 							if (process.env.CLICOLOR == 1) {
-								if (flag && !u.startsWith("https")) {
-									testLinkColor(u.replace(/^http/, "https"), flagj);
+								if (flag && !u.startsWith('https')) {
+									testLinkColor(u.replace(/^http/, 'https'), flagj);
 								} else {
 									testLinkColor(u, flagj);
 								}
 							}
 							if (process.env.CLICOLOR == 0) {
-								if (flag && !u.startsWith("https")) {
-									testLink(u.replace(/^http/, "https"), flagj);
+								if (flag && !u.startsWith('https')) {
+									testLink(u.replace(/^http/, 'https'), flagj);
 								} else {
 									testLink(u, flagj);
 								}
