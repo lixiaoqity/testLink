@@ -57,4 +57,12 @@ describe('url test', () => {
 		await testLink(url, false);
 		expect(finalize(logOutput)).toEqual(urlData);
 	});
+	test('url should return a JSON output', async () => {
+		const url = 'https://www.google.com';
+		const urlData = `{"url":"https://www.google.com","status":200}`;
+
+		nock(url).intercept('/', 'HEAD').reply(200);
+		await testLink(url, true);
+		expect(finalize(logOutput)).toEqual(urlData);
+	});
 });

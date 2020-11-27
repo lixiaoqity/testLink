@@ -8,7 +8,7 @@ const readFile = async (fileName, ignoreUrls, flag, flagj) => {
 	try {
 		data = await fs.readFile(fileName, 'utf8');
 	} catch (error) {
-		console.log(`File {${fileName}} can not be found. Please try again!`);
+		throw new Error(`File {${fileName}} can not be found. Please try again!`);
 	}
 
 	let urls = data.match(regex);
