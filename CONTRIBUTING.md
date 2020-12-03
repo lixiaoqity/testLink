@@ -4,6 +4,12 @@ JavaScript
 
 <h2>Install</h2>
 
+**Install globally**
+
+npm install link-checker-lixiaoqi -g
+
+**Install locally**
+
 Please download or clone the repository to your computer. Then change current directory to be the repository.
 
 npm init --- Initial your node.js enviroment.<br>
