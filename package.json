@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "link-checker",
   "version": "1.0.0",
   "description": "<h2>TestLinks</h2>",
   "main": "index.js",
@@ -11,8 +11,8 @@
     "eslint-fix": "eslint . --fix",
     "coverage": "jest --collectCoverage --"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Leon Li",
+  "license": "MIT",
   "bin": {
     "testLinks": "index.js"
   },
