@@ -4,14 +4,15 @@ const testLinkColor = require('./test-link-color');
 const regex = /(https?)(:\/\/)([-A-Za-z0-9+&@#/%?=~_|!:,.;]+[-A-Za-z0-9+&@#/%=~_|]+)/gi;
 
 const readFile = async (fileName, ignoreUrls, flag, flagj) => {
-	let data;
+	let data, urls;
 	try {
 		data = await fs.readFile(fileName, 'utf8');
 	} catch (error) {
 		throw new Error(`File {${fileName}} can not be found. Please try again!`);
 	}
-
-	let urls = data.match(regex);
+	if (data) {
+		urls = data.match(regex);
+	}
 	if (urls) {
 		for (let u of urls) {
 			if (!u.match(ignoreUrls)) {

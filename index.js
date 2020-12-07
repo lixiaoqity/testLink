@@ -4,6 +4,7 @@ const pjson = require('./package.json');
 const readFile = require('./src/read-file');
 const findIgnoreUrls = require('./src/find-ignore-urls');
 const readUrl = require('./src/read-url');
+const readDirectory = require('./src/read-directory');
 require('dotenv').config({ path: './config/keys.env' });
 
 let fileName = process.argv.slice(2);
@@ -39,6 +40,8 @@ if (fileName.length < 1) {
 		(fileName[0] == '-t' || fileName[0] == '--telescope' || fileName[0] == '\t')
 	) {
 		readUrl('http://localhost:3000/posts', flagj);
+	} else if (fileName.length == 2 && fileName[0] == '-d') {
+		readDirectory(fileName[1]);
 	} else {
 		let ingoreUrlRegex = null;
 
