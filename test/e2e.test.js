@@ -11,7 +11,10 @@ describe('end-to-end integration', () => {
 	});
 
 	test('prints url information with a path', async () => {
-		const { stdout, stderr } = await execa('node', ['index', 'test4.txt']);
+		const { stdout, stderr } = await execa('node', [
+			'index',
+			'example/test4.txt',
+		]);
 		expect(stdout).toMatchSnapshot();
 		expect(stderr).toEqual('');
 	});
@@ -19,8 +22,8 @@ describe('end-to-end integration', () => {
 	test('prints url information with two path', async () => {
 		const { stdout, stderr } = await execa('node', [
 			'index',
-			'test4.txt',
-			'test5.html',
+			'example/test4.txt',
+			'example/test5.html',
 		]);
 		expect(stdout).toMatchSnapshot();
 		expect(stderr).toEqual('');
@@ -30,7 +33,7 @@ describe('end-to-end integration', () => {
 		const { stdout, stderr } = await execa('node', [
 			'index',
 			'-j',
-			'test5.html',
+			'example/test5.html',
 		]);
 		expect(stdout).toMatchSnapshot();
 		expect(stderr).toEqual('');
@@ -40,8 +43,8 @@ describe('end-to-end integration', () => {
 		const { stdout, stderr } = await execa('node', [
 			'index',
 			'-i',
-			'test5.html',
-			'test4.txt',
+			'example/test5.html',
+			'example/test4.txt',
 		]);
 		expect(stdout).toMatchSnapshot();
 		expect(stderr).toEqual('');
